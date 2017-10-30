@@ -7,7 +7,7 @@ yarn start
 
 # TODO
 
-### Static Components ### 
+### Static Components ###
 
 Display a component `ProductItem` which will contain some very small sub components (ie `Price`, `AddToCartButton`...)
 
@@ -21,7 +21,7 @@ Add a basket/cart component
 
 ### Redux ###
 
-Use Redux to add products to basket
+Use Redux to add products to basket.
 
 ### React-Router ###
 
@@ -31,4 +31,10 @@ You can then go back to the product list.
 
 ###  Apollo ###
 
-Maybe branch Apollo... 
+Use Apollo and a very simple GraphQL server to fetch the product data
+
+### Modals, Alerts ###
+
+Propose a way of adding dynamic modals and/or alerts to the page.
+You can add a "stock" notion to the GraphQL data set, and decrease it when a user adds a product.
+When there is no stock, the product is still displayed, maybe a bit differently, but when you click on the "add" button, it would also display a nice modal.
