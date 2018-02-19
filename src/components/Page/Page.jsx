@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
 
 
@@ -10,9 +9,10 @@ class Page extends Component {
   state = {
     // product: [],
   };
-  // handleAdd(e) {
-  //   this.setState(product)
-  // }
+
+  handleAdd(e) {
+    console.log(e);
+  }
 
   handleRemove() {
 
@@ -22,7 +22,7 @@ class Page extends Component {
       <Grid celled>
         <Grid.Row>
           <Grid.Column width={13}>
-            <Shop />
+            <Shop handleAdd={this.handleAdd} />
           </Grid.Column>
           <Grid.Column width={3}>
             <Cart />
@@ -32,9 +32,5 @@ class Page extends Component {
     );
   }
 }
-
-// Header.propTypes = {
-//   title: PropTypes.string.isRequired,
-// };
 
 export default Page;

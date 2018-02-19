@@ -7,7 +7,9 @@ import AddToCartButton from '../AddToCartButton';
 import DeleteButton from '../DeleteButton';
 
 
-const ProductItem = ({ name, price, description }) => (
+const ProductItem = ({
+  name, price, description, handleAdd,
+}) => (
   <div>
     <Item.Group>
       <Item>
@@ -23,7 +25,7 @@ const ProductItem = ({ name, price, description }) => (
         </Item.Content>
       </Item>
     </Item.Group>
-    <AddToCartButton />
+    <AddToCartButton handleAdd={handleAdd} />
     <DeleteButton />
   </div>
 );
@@ -33,6 +35,7 @@ ProductItem.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
+  handleAdd: PropTypes.func,
 
 };
 
