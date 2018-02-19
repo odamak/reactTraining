@@ -3,11 +3,26 @@ import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 
-const AddToCartButton = ({ handleAdd }) => (
-  <Button onClick={() => handleAdd('111')}>Add to cart</Button>
+const AddToCartButton = ({
+  id, name, price,
+  description, handleAdd,
+}) => (
+  <Button
+    onClick={() => handleAdd({
+      id,
+      name,
+      price,
+      description,
+    })}
+  >Add to cart
+  </Button>
 );
 
 AddToCartButton.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  description: PropTypes.string,
   handleAdd: PropTypes.func,
 };
 

@@ -6,32 +6,39 @@ import IMAGES from '../../../asset';
 import AddToCartButton from '../AddToCartButton';
 import DeleteButton from '../DeleteButton';
 
-
 const ProductItem = ({
-  name, price, description, handleAdd,
-}) => (
-  <div>
-    <Item.Group>
-      <Item>
-        <Item.Image size="tiny" src={IMAGES.HEMP} />
-        <Item.Content>
-          <Item.Header as="a">{name}</Item.Header>
-          <Item.Description>
-            {description}
-          </Item.Description>
-          <Item.Description>
+  id, name, price, description, handleAdd,
+}) => {
+  const productInfo = {
+    id,
+    name,
+    price,
+    description,
+    handleAdd,
+  };
+  return (
+    <div>
+      <Item.Group>
+        <Item>
+          <Item.Image size="tiny" src={IMAGES.HEMP} />
+          <Item.Content>
+            <Item.Header as="a">{name}</Item.Header>
+            <Item.Description>
+              {description}
+            </Item.Description>
+            <Item.Description>
             Price {price}
-          </Item.Description>
-        </Item.Content>
-      </Item>
-    </Item.Group>
-    <AddToCartButton handleAdd={handleAdd} />
-    <DeleteButton />
-  </div>
-);
-
+            </Item.Description>
+          </Item.Content>
+        </Item>
+      </Item.Group>
+      <AddToCartButton {...productInfo} />
+      <DeleteButton />
+    </div>
+  );
+};
 ProductItem.propTypes = {
-  // id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
