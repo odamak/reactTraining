@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Item } from 'semantic-ui-react';
 
 import IMAGES from '../../../asset';
@@ -7,17 +7,19 @@ import AddToCartButton from '../AddToCartButton';
 import DeleteButton from '../DeleteButton';
 
 
-const ProductItem = () => (
+const ProductItem = ({ name, price, description }) => (
   <div>
     <Item.Group>
       <Item>
         <Item.Image size="tiny" src={IMAGES.HEMP} />
         <Item.Content>
-          <Item.Header as="a">Header</Item.Header>
-          <Item.Meta>Description</Item.Meta>
+          <Item.Header as="a">{name}</Item.Header>
           <Item.Description>
+            {description}
           </Item.Description>
-          <Item.Extra>Additional Details</Item.Extra>
+          <Item.Description>
+            Price {price}
+          </Item.Description>
         </Item.Content>
       </Item>
     </Item.Group>
@@ -26,8 +28,12 @@ const ProductItem = () => (
   </div>
 );
 
-// Header.propTypes = {
-//   title: PropTypes.string.isRequired,
-// };
+ProductItem.propTypes = {
+  // id: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  description: PropTypes.string,
+
+};
 
 export default ProductItem;
