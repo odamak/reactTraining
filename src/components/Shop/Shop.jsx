@@ -26,25 +26,6 @@ const Shop = ({ handleAdd }) => (
   </Grid>
 );
 
-// const Shop = () => (
-//   <Grid celled>
-//     <Grid.Row>
-//       <Grid.Column width={16}>
-//         <H1> Shop </H1>
-//       </Grid.Column>
-//       <Grid.Column width={3}>
-//         <ProductItem />
-//       </Grid.Column>
-//       <Grid.Column width={3}>
-//         <ProductItem />
-//       </Grid.Column>
-//       <Grid.Column width={3}>
-//         <ProductItem />
-//       </Grid.Column>
-//     </Grid.Row>
-//   </Grid>
-// );
-
 Shop.propTypes = {
   handleAdd: PropTypes.func,
 };
