@@ -7,7 +7,7 @@ import AddToCartButton from '../AddToCartButton';
 import DeleteButton from '../DeleteButton';
 
 const ProductItem = ({
-  id, name, price, description, quantity, handleAdd, itemForCart,
+  id, name, price, description, quantity, handleAdd, itemForCart, handleRemove,
 }) => {
   const productInfo = {
     id,
@@ -16,6 +16,7 @@ const ProductItem = ({
     description,
     quantity,
     handleAdd,
+    handleRemove,
   };
   return (
     <div>
@@ -38,7 +39,7 @@ const ProductItem = ({
         </Item>
       </Item.Group>
       { !itemForCart && <AddToCartButton {...productInfo} />}
-      { itemForCart && <DeleteButton />}
+      { itemForCart && <DeleteButton {...productInfo} />}
     </div>
   );
 };
@@ -48,8 +49,9 @@ ProductItem.propTypes = {
   price: PropTypes.number,
   description: PropTypes.string,
   quantity: PropTypes.number,
-  handleAdd: PropTypes.func,
   itemForCart: PropTypes.bool,
+  handleAdd: PropTypes.func,
+  handleRemove: PropTypes.func,
 
 };
 

@@ -9,7 +9,7 @@ const H1 = styled.h1`
   size: 50px;
 `;
 
-const Cart = ({ products }) => (
+const Cart = ({ products, handleRemove }) => (
   <Grid celled>
     <Grid.Row>
       <Grid.Column width={16}>
@@ -17,7 +17,7 @@ const Cart = ({ products }) => (
       </Grid.Column>
       {products.map((item) => (
         <Grid.Column width={16} key={uniqueId('product_')}>
-          <ProductItem {...item} itemForCart />
+          <ProductItem {...item} itemForCart handleRemove={handleRemove} />
         </Grid.Column>))
       }
     </Grid.Row>
@@ -26,6 +26,7 @@ const Cart = ({ products }) => (
 
 Cart.propTypes = {
   products: PropTypes.array,
+  handleRemove: PropTypes.func,
 };
 
 export default Cart;
