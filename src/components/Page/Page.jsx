@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import { filter, isEmpty } from 'lodash';
+import { findIndex } from 'lodash';
 
 import Shop from '../Shop';
 import Cart from '../Cart';
@@ -17,23 +17,14 @@ class Page extends Component {
 
   handleAdd(productToAdd) {
     const { products } = this.state;
-    if (products.length === 0) {
-      products.push({ ...productToAdd, quantity: 1 });
+    const indexProductToBeUpdated = findIndex(
+      products,
+      (product) => product.id === productToAdd.id
+    );
+    if (indexProductToBeUpdated !== -1) {
+      products[indexProductToBeUpdated].quantity += 1;
     } else {
-      const productToBeUpdated = filter(
-        products,
-        (product) => product.id === productToAdd.id
-      );
-      if (!isEmpty(productToBeUpdated)) {
-        productToBeUpdated.quantity += 1;
-        const updatedProducts = filter(
-          products,
-          (product) => product.id !== productToAdd.id
-        );
-        updatedProducts.push(productToBeUpdated);
-      } else {
-        products.push({ ...productToAdd, quantity: 1 });
-      }
+      products.push({ ...productToAdd, quantity: 1 });
     }
     this.setState(() => ({
       products,
