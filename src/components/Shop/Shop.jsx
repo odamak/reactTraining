@@ -19,7 +19,7 @@ const Shop = ({ handleAdd }) => (
       </Grid.Column>
       {map(products, (product) => (
         <Grid.Column key={product.id} width={3}>
-          <ProductItem handleAdd={handleAdd} {...product} />
+          <ProductItem handleAdd={handleAdd} {...product} itemForCart={false} />
         </Grid.Column>
       ))}
     </Grid.Row>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-
+import { filter, isEmpty } from 'lodash';
 
 import Shop from '../Shop';
 import Cart from '../Cart';
@@ -15,9 +15,26 @@ class Page extends Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  handleAdd(e) {
+  handleAdd(productToAdd) {
     const { products } = this.state;
-    products.push(e);
+    if (products.length === 0) {
+      products.push({ ...productToAdd, quantity: 1 });
+    } else {
+      const productToBeUpdated = filter(
+        products,
+        (product) => product.id === productToAdd.id
+      );
+      if (!isEmpty(productToBeUpdated)) {
+        productToBeUpdated.quantity += 1;
+        const updatedProducts = filter(
+          products,
+          (product) => product.id !== productToAdd.id
+        );
+        updatedProducts.push(productToBeUpdated);
+      } else {
+        products.push({ ...productToAdd, quantity: 1 });
+      }
+    }
     this.setState(() => ({
       products,
     }));
@@ -35,7 +52,6 @@ class Page extends Component {
         <Grid.Row>
           <Grid.Column width={13}>
             <Shop handleAdd={this.handleAdd} />
-            {this.state.products.length > 0 && this.state.products.map((item) => item.name)}
           </Grid.Column>
           <Grid.Column width={3}>
             <Cart products={this.state.products} />

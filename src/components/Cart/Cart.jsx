@@ -17,7 +17,7 @@ const Cart = ({ products }) => (
       </Grid.Column>
       {products.map((item) => (
         <Grid.Column width={16} key={uniqueId('product_')}>
-          <ProductItem {...item} />
+          <ProductItem {...item} itemForCart />
         </Grid.Column>))
       }
     </Grid.Row>
