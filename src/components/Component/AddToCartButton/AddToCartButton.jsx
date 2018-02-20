@@ -19,7 +19,7 @@ const AddToCartButton = ({
 );
 
 AddToCartButton.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number,
   name: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
