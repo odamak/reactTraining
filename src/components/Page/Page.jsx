@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import { findIndex, slice } from 'lodash';
+import { findIndex, remove } from 'lodash';
 
 import Shop from '../Shop';
 import Cart from '../Cart';
@@ -29,20 +29,11 @@ class Page extends Component {
     this.setState(() => ({
       products,
     }));
-
-    console.log(this.state);
-    console.log(typeof this.state.products);
   }
 
   handleRemove(productToDelete) {
     const { products } = this.state;
-    const indexProductToBeDeleted = findIndex(
-      products,
-      (product) => product.id === productToDelete.id
-    );
-    if (indexProductToBeDeleted !== -1) {
-      slice(products, indexProductToBeDeleted, 1);
-    }
+    remove(products, (product) => productToDelete.id === product.id);
     this.setState(() => ({
       products,
     }));
