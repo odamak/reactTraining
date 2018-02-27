@@ -1,15 +1,19 @@
+import { HEMP, MORINGA } from '../asset';
+
 const products = [
   {
     id: 0,
-    name: 'Tomatoes',
-    price: 0.54,
-    description: 'A bunch of tomatoes',
+    name: 'Hemp Protein',
+    price: 15.50,
+    description: 'Hemp Protein seeds',
+    image: HEMP,
   },
   {
     id: 1,
-    name: 'Potatoes',
-    price: 0.48,
-    description: 'You know, for fries.',
+    name: 'Moringa',
+    price: 11.75,
+    description: 'Moringa seeds',
+    image: MORINGA,
   },
 ];
 

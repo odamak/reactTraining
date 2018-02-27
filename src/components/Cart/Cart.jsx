@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
-import { uniqueId } from 'lodash';
+import { uniqueId, map } from 'lodash';
+import { connect } from 'react-redux';
 import ProductItem from '../Component/ProductItem';
 
 const H1 = styled.h1`
@@ -15,9 +16,9 @@ const Cart = ({ products, handleRemove }) => (
       <Grid.Column width={16}>
         <H1> Cart </H1>
       </Grid.Column>
-      {products.map((item) => (
+      {map(products, (product) => (
         <Grid.Column width={16} key={uniqueId('product_')}>
-          <ProductItem {...item} itemForCart handleRemove={handleRemove} />
+          <ProductItem {...product} handleRemove={handleRemove} itemForCart />
         </Grid.Column>))
       }
     </Grid.Row>
@@ -29,4 +30,8 @@ Cart.propTypes = {
   handleRemove: PropTypes.func,
 };
 
-export default Cart;
+const mapStateToProps = (state) => ({
+  products: state.products,
+});
+
+export default connect(mapStateToProps)(Cart);

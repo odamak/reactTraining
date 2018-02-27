@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const AddToCartButton = ({
   id, name, price,
-  description, handleAdd,
+  description, image, handleAdd,
 }) => (
   <Button
     onClick={() => handleAdd({
@@ -13,6 +13,7 @@ const AddToCartButton = ({
       name,
       price,
       description,
+      image,
     })}
   >Add to cart
   </Button>
@@ -23,6 +24,7 @@ AddToCartButton.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
+  image: PropTypes.string,
   handleAdd: PropTypes.func,
 };
 

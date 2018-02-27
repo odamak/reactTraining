@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Item } from 'semantic-ui-react';
 
-import IMAGES from '../../../asset';
 import AddToCartButton from '../AddToCartButton';
 import DeleteButton from '../DeleteButton';
 
 const ProductItem = ({
-  id, name, price, description, quantity, handleAdd, itemForCart, handleRemove,
+  id, name, price, description, image, quantity, handleAdd, itemForCart, handleRemove,
 }) => {
   const productInfo = {
     id,
     name,
     price,
     description,
+    image,
     quantity,
     handleAdd,
     handleRemove,
@@ -22,7 +22,7 @@ const ProductItem = ({
     <div>
       <Item.Group>
         <Item>
-          <Item.Image size="tiny" src={IMAGES.HEMP} />
+          <Item.Image size="tiny" src={image} />
           <Item.Content>
             <Item.Header as="a">{name}</Item.Header>
             <Item.Description>
@@ -48,6 +48,7 @@ ProductItem.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
+  image: PropTypes.string,
   quantity: PropTypes.number,
   itemForCart: PropTypes.bool,
   handleAdd: PropTypes.func,
