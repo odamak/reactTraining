@@ -17,10 +17,10 @@ const initialState = {
 
 const removeProduct = (state, productToDelete) => {
   const { products } = state;
-  remove(products, (product) => productToDelete.id === product.id);
+  const filteredProducts = remove(products, (product) => productToDelete.id !== product.id);
   return {
     ...state,
-    products,
+    products: [...filteredProducts],
   };
 };
 

@@ -15,7 +15,7 @@ const Page = (props) => (
         <Shop handleAdd={props.addProduct} />
       </Grid.Column>
       <Grid.Column width={3}>
-        <Cart handleRemove={props.removeProduct} />
+        <Cart handleRemove={props.removeProduct} products={props.products} />
       </Grid.Column>
     </Grid.Row>
   </Grid>
@@ -44,6 +44,7 @@ const mapDispatchToProps = (dispatch) => ({
 Page.propTypes = {
   addProduct: PropTypes.func,
   removeProduct: PropTypes.func,
+  products: PropTypes.array,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Page);
