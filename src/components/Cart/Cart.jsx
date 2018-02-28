@@ -15,7 +15,6 @@ const Cart = ({ products, handleRemove }) => (
       <Grid.Column width={16}>
         <H1> Cart </H1>
       </Grid.Column>
-      {console.log('fok', products)}
       {map(products, (product) => (
         <Grid.Column width={16} key={uniqueId('product_')}>
           <ProductItem {...product} handleRemove={handleRemove} itemForCart />
